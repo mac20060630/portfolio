@@ -6,7 +6,7 @@ const config = {
       "Creative developer crafting interactive web experiences and innovative digital solutions.",
   },
   keywords: [
-    "Maha",
+    "Maha Akshay",
     "portfolio",
     "creative developer",
     "web development",
