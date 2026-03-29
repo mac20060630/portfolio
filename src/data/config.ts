@@ -20,15 +20,14 @@ const config = {
     "Technologist",
   ],
   author: "Maha Akshay",
-  email: "hello@maha.dev",
-  site: "https://maha.dev",
+  email: "maha30r@gmail.com",
 
   // for github stars button
   githubUsername: "mac20060630",
   githubRepo: "3d-portfolio",
 
   get ogImg() {
-    return this.site + "/assets/seo/og-image.png";
+    return "/assets/seo/og-image.png";
   },
   social: {
     linkedin: "https://www.linkedin.com/in/maha-akshay-r-96690926a/",
