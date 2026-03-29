@@ -18,7 +18,6 @@ function MainPage() {
         <HeroSection />
         <SkillsSection />
         <ExperienceSection />
-        <ProjectsSection />
         <ContactSection />
       </main>
     </SmoothScroll>

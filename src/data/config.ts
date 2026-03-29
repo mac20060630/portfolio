@@ -24,18 +24,16 @@ const config = {
   site: "https://maha.dev",
 
   // for github stars button
-  githubUsername: "maha",
+  githubUsername: "mac20060630",
   githubRepo: "3d-portfolio",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
   },
   social: {
-    twitter: "https://x.com/maha",
-    linkedin: "https://www.linkedin.com/in/maha/",
-    instagram: "https://www.instagram.com/maha",
-    facebook: "https://www.facebook.com/maha/",
-    github: "https://github.com/maha",
+    linkedin: "https://www.linkedin.com/in/maha-akshay-r-96690926a/",
+    instagram: "https://www.instagram.com/mac.9035?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    github: "https://github.com/mac20060630",
   },
 };
 export { config };
