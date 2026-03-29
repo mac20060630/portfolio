@@ -9,6 +9,7 @@ import ExperienceSection from "@/components/sections/experience";
 
 import ContactSection from "@/components/sections/contact";
 import HeroSection from "@/components/sections/hero";
+import ProjectsSection from "@/components/sections/projects";
 
 function MainPage() {
   return (
@@ -17,6 +18,7 @@ function MainPage() {
       <main className={cn("bg-slate-100 dark:bg-transparent canvas-overlay-mode")}>
         <HeroSection />
         <SkillsSection />
+        <ProjectsSection />
         <ExperienceSection />
         <ContactSection />
       </main>
