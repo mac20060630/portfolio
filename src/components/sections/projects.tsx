@@ -40,7 +40,7 @@ const Modall = ({ project }: { project: Project }) => {
             style={{ aspectRatio: "3/2" }}
           >
             <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
+              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all object-cover object-top"
               src={project.src}
               alt={project.title}
               width={300}

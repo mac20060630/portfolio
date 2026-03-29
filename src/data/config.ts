@@ -10,6 +10,7 @@ const config = {
     "portfolio",
     "creative developer",
     "web development",
+
     "3D animations",
     "interactive websites",
     "React",
