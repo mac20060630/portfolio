@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     description: config.description.short,
     images: [config.ogImg],
   },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
   robots: {
     index: true,
     follow: true,
