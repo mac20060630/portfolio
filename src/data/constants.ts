@@ -25,6 +25,7 @@ export enum SkillNames {
   GCP = "gcp",
   VIM = "vim",
   VERCEL = "vercel",
+  PYTHON = "python",
 }
 export type Skill = {
   id: number;
@@ -243,6 +244,14 @@ using use = useUsing("use")`,
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
   },
+  [SkillNames.PYTHON]: {
+    id: 26,
+    name: "python",
+    label: "Python",
+    shortDescription: "Sssslithering through data like a boss! 🐍🔥",
+    color: "#3776ab",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
 };
 
 export type Experience = {
@@ -258,44 +267,67 @@ export type Experience = {
 export const EXPERIENCE: Experience[] = [
   {
     id: 1,
-    startDate: "Jan 2024",
+    startDate: "Jan 2026",
     endDate: "Present",
-    title: "Senior Full Stack Developer",
-    company: "TechNova Inc.",
+    title: "Freelance Designer",
+    company: "Freelance",
     description: [
-      "Lead development of microservices architecture serving 100k+ daily active users.",
-      "Architected real-time data pipeline processing 2M+ events daily with 99.9% uptime.",
-      "Mentored team of 5 junior developers, establishing code review practices and CI/CD workflows.",
-      "Reduced page load times by 60% through SSR optimization and edge caching strategies.",
+      "Specializing in web and app design, creating intuitive and visually stunning user interfaces.",
+      "Collaborating with clients to translate their vision into functional digital products.",
+      "Focused on delivering high-quality, responsive designs that enhance user experience.",
     ],
     skills: [
+      SkillNames.HTML,
+      SkillNames.CSS,
+      SkillNames.JS,
       SkillNames.REACT,
-      SkillNames.NODEJS,
-      SkillNames.TS,
-      SkillNames.POSTGRES,
-      SkillNames.DOCKER,
-      SkillNames.AWS,
     ],
   },
   {
     id: 2,
-    startDate: "Mar 2022",
-    endDate: "Dec 2023",
-    title: "Full Stack Developer",
-    company: "DigitalCraft Studio",
+    startDate: "Jan 2025",
+    endDate: "May 2025",
+    title: "Project Management Intern",
+    company: "Karunadu Technologies Private Limited",
     description: [
-      "Built and shipped 15+ client projects from concept to production deployment.",
-      "Developed custom CMS platforms tailored to each client's unique content workflow.",
-      "Integrated third-party APIs and payment systems for e-commerce platforms.",
-      "Implemented automated testing pipeline reducing production bugs by 40%.",
+      "Coordinated project workflows and ensured timely delivery of key milestones.",
+      "Facilitated communication between technical teams and stakeholders.",
+      "Gained hands-on experience in Agile methodologies and project life cycle management.",
     ],
     skills: [
-      SkillNames.NEXTJS,
-      SkillNames.VUE,
-      SkillNames.EXPRESS,
-      SkillNames.MONGODB,
-      SkillNames.TAILWIND,
-      SkillNames.FIREBASE,
+      SkillNames.GITHUB,
+      SkillNames.GIT,
+    ],
+  },
+  {
+    id: 3,
+    startDate: "Jan 2025",
+    endDate: "Jan 2025",
+    title: "Project Intern",
+    company: "F8 Products LLP",
+    description: [
+      "Contributed to research and development phases of various innovative projects.",
+      "Assisted in technical documentation and quality assurance testing.",
+    ],
+    skills: [
+      SkillNames.JS,
+      SkillNames.PYTHON,
+    ],
+  },
+  {
+    id: 4,
+    startDate: "Jun 2024",
+    endDate: "Aug 2024",
+    title: "Student Intern",
+    company: "Karunadu Technologies Private Limited",
+    description: [
+      "Explored various software development practices and assisted senior developers.",
+      "Worked on minor feature enhancements and bug fixes for internal tools.",
+    ],
+    skills: [
+      SkillNames.HTML,
+      SkillNames.CSS,
+      SkillNames.JS,
     ],
   },
 ];

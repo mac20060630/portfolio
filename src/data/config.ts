@@ -19,7 +19,7 @@ const config = {
     "Three.js",
     "Technologist",
   ],
-  author: "Maha",
+  author: "Maha Akshay",
   email: "hello@maha.dev",
   site: "https://maha.dev",
 
