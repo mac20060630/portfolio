@@ -122,6 +122,30 @@ const projects: Project[] = [
       </div>
     ),
   },
+  {
+    id: "flowersss",
+    category: "Interactive Animation",
+    title: "Flowersss",
+    src: "/assets/projects/flowers-coral.png",
+    screenshots: ["flowers-coral.png"],
+    skills: {
+      frontend: [
+        commonSkills.javascript,
+      ],
+      backend: [],
+    },
+    live: "https://flowers-coral-ten.vercel.app/",
+    content: (
+      <div className="space-y-4">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          An interactive, bioluminescent floral animation that glows against a dark, starry background. The site serves as a creative showcase, featuring fluid, glowing animations of blooming flowers and grass.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Built as a visual surprise, this project highlights custom CSS and JavaScript animations to create a serene, ambient experience.
+        </p>
+      </div>
+    ),
+  },
 ];
 
 export default projects;
