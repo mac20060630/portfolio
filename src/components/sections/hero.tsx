@@ -76,7 +76,7 @@ const HeroSection = () => {
                       "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    Creative Developer &amp; Technologist
+                    UI/UX Designer &amp; Creative Developer
                   </p>
                 </BlurIn>
               </div>

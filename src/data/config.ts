@@ -1,9 +1,9 @@
 const config = {
   title: "Maha Akshay | Creative Developer",
   description: {
-    long: "Explore the portfolio of Maha Akshay — a creative developer and technologist specializing in interactive web experiences, stunning visual design, and innovative digital solutions. Discover projects, skills, and a passion for building the future of the web.",
+    long: "Explore the portfolio of Maha Akshay — a UI/UX designer and creative developer specializing in interactive web experiences, stunning visual design, and innovative digital solutions. Discover projects, skills, and a passion for building the future of the web.",
     short:
-      "Creative developer crafting interactive web experiences and innovative digital solutions.",
+      "UI/UX designer and creative developer crafting interactive web experiences and innovative digital solutions.",
   },
   keywords: [
     "Maha Akshay",
