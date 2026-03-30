@@ -19,8 +19,14 @@ export async function POST(req: Request) {
       data: zodData,
       error: zodError,
     } = Email.safeParse(body);
-    if (!zodSuccess)
-      return Response.json({ error: zodError?.message }, { status: 400 });
+
+    if (!zodSuccess) {
+      let errorMessage = "Invalid input.";
+      if (zodError && zodError.errors && zodError.errors.length > 0) {
+        errorMessage = zodError.errors[0].message;
+      }
+      return Response.json({ error: errorMessage }, { status: 400 });
+    }
 
     const { data: resendData, error: resendError } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
@@ -34,11 +40,11 @@ export async function POST(req: Request) {
     });
 
     if (resendError) {
-      return Response.json({ resendError }, { status: 500 });
+      return Response.json({ error: resendError.message }, { status: 500 });
     }
 
     return Response.json(resendData);
-  } catch (error) {
-    return Response.json({ error }, { status: 500 });
+  } catch (error: any) {
+    return Response.json({ error: error?.message || "Internal server error" }, { status: 500 });
   }
 }
