@@ -33,9 +33,16 @@ const ContactForm = () => {
           message,
         }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Failed to send message!");
-      if (data.error) throw new Error(data.error);
+      let data;
+      try {
+        data = await res.json();
+      } catch (jsonError) {
+        throw new Error("Server returned an invalid response. This usually means a 500 server error occurred before the code ran.");
+      }
+      
+      if (!res.ok) throw new Error(data?.error || "Failed to send message!");
+      if (data?.error) throw new Error(data.error);
+
       toast({
         title: "Thank you!",
         description: "I'll get back to you as soon as possible.",
