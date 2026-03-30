@@ -8,6 +8,7 @@ import Footer from "@/components/footer/footer";
 import Script from "next/script";
 import AppOverlays from "@/components/app-overlays";
 import { Providers } from "@/components/providers";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: config.title,
@@ -68,7 +69,6 @@ export default function RootLayout({
           src={process.env.UMAMI_DOMAIN}
           data-website-id={process.env.UMAMI_SITE_ID}
         ></Script>
-        {/* <Analytics /> */}
       </head>
       <body>
         <Providers>
@@ -77,6 +77,7 @@ export default function RootLayout({
           <Footer />
           <AppOverlays />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
