@@ -6,6 +6,9 @@ import {
   SiFramer, 
   SiTypescript,
   SiJavascript,
+  SiNodedotjs,
+  SiFirebase,
+  SiPostgresql,
 } from "react-icons/si";
 
 export type Skill = {
@@ -63,6 +66,24 @@ const commonSkills = {
     bg: "bg-[#F7DF1E]",
     fg: "text-black",
     icon: <SiJavascript />,
+  },
+  node: {
+    title: "Node.js",
+    bg: "bg-[#339933]",
+    fg: "text-white",
+    icon: <SiNodedotjs />,
+  },
+  firebase: {
+    title: "Firebase",
+    bg: "bg-[#FFCA28]",
+    fg: "text-black",
+    icon: <SiFirebase />,
+  },
+  postgresql: {
+    title: "PostgreSQL",
+    bg: "bg-[#4169E1]",
+    fg: "text-white",
+    icon: <SiPostgresql />,
   },
 };
 
@@ -142,6 +163,37 @@ const projects: Project[] = [
         </p>
         <p className="text-neutral-600 dark:text-neutral-400">
           Built as a visual surprise, this project highlights custom CSS and JavaScript animations to create a serene, ambient experience.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "lead-gen-dashboard",
+    category: "SaaS Platform",
+    title: "Lead Generation and Automated Email Dashboard",
+    src: "/assets/projects/lead-gen-dashboard.png",
+    screenshots: ["lead-gen-dashboard.png"],
+    skills: {
+      frontend: [
+        commonSkills.nextjs,
+        commonSkills.react,
+        commonSkills.tailwind,
+        commonSkills.typescript,
+      ],
+      backend: [
+        commonSkills.node,
+        commonSkills.firebase,
+        commonSkills.postgresql,
+      ],
+    },
+    live: "https://lead-gen-dashboard-demo.vercel.app/",
+    content: (
+      <div className="space-y-4">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          A comprehensive automation platform designed to streamline lead acquisition and email marketing workflows. This dashboard provides a centralized hub for managing campaigns, tracking lead conversion, and automating personalized email sequences.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Featuring a high-performance glassmorphic UI, real-time data visualization, and seamless CRM integration, it empowers businesses to scale their outreach with precision and ease.
         </p>
       </div>
     ),
