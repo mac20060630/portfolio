@@ -103,12 +103,12 @@ const HeroSection = () => {
                           variant={"outline"}
                           className="block w-full overflow-hidden"
                         >
-                          Hire Me
+                          lets connect
                         </Button>
                       </Link>
                     </TooltipTrigger>
                     <TooltipContent side="bottom">
-                      <p>pls 🥹 🙏</p>
+                      <p>🥳🥳</p>
                     </TooltipContent>
                   </Tooltip>
                   <div className="flex items-center h-full gap-2">
