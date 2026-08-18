@@ -1,179 +1,79 @@
-# 🚀 3D Portfolio
+# 🌐 Maha Akshay — 3D Developer Portfolio
 
-A jaw-dropping developer portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. Not your average portfolio template! This one has a fully interactive 3D keyboard where each keycap is a skill.
+[![Live Site](https://img.shields.io/badge/Live_Demo-mahaakshay.vercel.app-brightgreen?style=for-the-badge&logo=vercel)](https://mahaakshay.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-mac20060630-181717?style=for-the-badge&logo=github)](https://github.com/mac20060630)
 
-> **Free to use!** This portfolio is open source. If you use it, a credit/link back would be really appreciated 🙏
-
-[![Deploy with Vercel](https://vercel.com/button)](https://mahaakshay.vercel.app/)
+Personal 3D developer portfolio of **Maha Akshay** — UI/UX Designer & Creative Developer. Packed with interactive 3D animations, smooth transitions, and a space-themed aesthetic featuring a custom 3D keyboard skill showcase.
 
 ![Portfolio Preview](public/assets/projects-screenshots/portfolio/landing.png)
 
-## ✨ Features
+🔗 **Live Website:** [mahaakshay.vercel.app](https://mahaakshay.vercel.app/)
 
-- **Interactive 3D Keyboard** — Custom Spline keyboard where each keycap represents a skill, revealing titles and descriptions on hover/press
-- **Buttery Animations** — GSAP + Framer Motion powered scroll, hover, and reveal animations
-- **Space Theme** — Floating particles on a dark canvas for a cosmic vibe
-- **Light & Dark Mode** — Full theme support with cheeky disclaimer toasts
-- **Responsive** — Works across all screen sizes
-- **Contact Form** — Email delivery via Resend
-- **Analytics** _(optional)_ — Umami analytics integration
+---
+
+## ✨ Key Features
+
+- **Interactive 3D Keyboard** — Custom 3D Spline keyboard where each keycap represents a skill, revealing titles and details on hover/press.
+- **Dynamic Animations** — Powered by GSAP and Framer Motion for smooth scroll, hover, and reveal effects.
+- **Space Theme** — Cosmic aesthetic with floating canvas particles.
+- **Theme Support** — Full dark and light mode support.
+- **Contact Form** — Direct email delivery integrated via Resend.
+- **Fully Responsive** — Seamlessly optimized across screen sizes.
+
+---
 
 ## 🛠️ Tech Stack
 
-| Layer | Technologies |
+| Category | Technologies |
 |---|---|
 | **Framework** | Next.js 14, React 18, TypeScript |
-| **Styling** | Tailwind CSS, Shadcn UI, Aceternity UI |
-| **Animation** | GSAP, Framer Motion |
-| **3D** | Spline Runtime |
-| **Email** | Resend |
-| **Misc** | Lenis (smooth scroll), Zod, next-themes |
+| **Styling & UI** | Tailwind CSS, Shadcn UI, Aceternity UI |
+| **Animations** | GSAP, Framer Motion |
+| **3D Graphics** | Spline |
+| **Email Service** | Resend |
+| **Utilities** | Lenis (Smooth Scroll), Zod, Next-Themes |
 
 ---
 
-## 🚀 Getting Started
+## 💻 Local Development
 
 ### Prerequisites
 
-- Node.js (v18+)
-- pnpm (recommended), npm, or yarn
+- **Node.js**: v18 or higher
+- **Package Manager**: pnpm, npm, or yarn
 
-### Installation
+### Setup Instructions
 
 1. **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/Naresh-Khatri/3d-portfolio.git
-    cd 3d-portfolio
-    ```
+   ```bash
+   git clone https://github.com/mac20060630/3d-portfolio-main.git
+   cd 3d-portfolio-main
+   ```
 
 2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
 
-    ```bash
-    pnpm install
-    ```
+3. **Configure Environment Variables:**
+   Create a `.env.local` file in the root directory:
+   ```env
+   RESEND_API_KEY=your_resend_api_key
+   ```
 
-3. **Set up environment variables:**
+4. **Start Development Server:**
+   ```bash
+   pnpm dev
+   ```
 
-    Copy `.env.example` to `.env.local` and fill in the values:
-
-    ```bash
-    cp .env.example .env.local
-    ```
-
-    | Variable | Required | Description |
-    |---|---|---|
-    | `RESEND_API_KEY` | Yes | API key from [Resend](https://resend.com) for the contact form |
-    | `NEXT_PUBLIC_WS_URL` | No | WebSocket server URL for realtime features (cursors, chat, presence) |
-    | `UMAMI_DOMAIN` | No | Umami analytics script URL |
-    | `UMAMI_SITE_ID` | No | Umami website ID |
-
-4. **Run the development server:**
-
-    ```bash
-    pnpm dev
-    ```
-
-5. Open [http://localhost:3000](http://localhost:3000) and see the magic ✨
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🎨 Make It Your Own
+## 📬 Contact & Socials
 
-All personal info is centralized in [`src/data/config.ts`](src/data/config.ts). Edit this single file to rebrand the portfolio:
-
-```ts
-const config = {
-  title: "Your Name | Your Title",
-  description: {
-    long: "Your long description for SEO...",
-    short: "Your short description...",
-  },
-  keywords: ["your", "keywords"],
-  author: "Your Name",
-  email: "you@example.com",
-  site: "https://yoursite.com",
-
-  // GitHub stars button in the header
-  githubUsername: "your-github-username",
-  githubRepo: "your-repo-name",
-
-  social: {
-    twitter: "https://x.com/you",
-    linkedin: "https://linkedin.com/in/you",
-    instagram: "https://instagram.com/you",
-    facebook: "https://facebook.com/you",
-    github: "https://github.com/you",
-  },
-};
-```
-
-Other files you'll want to customize:
-
-| File | What to change |
-|---|---|
-| `src/data/projects.tsx` | Your projects, screenshots, descriptions, and tech stacks |
-| `src/data/constants.ts` | Skills list (name, description, icon) and work experience |
-| `public/assets/` | Your images, OG image, and project screenshots |
-
----
-
-## ⌨️ Updating the 3D Keyboard Skills
-
-The 3D keyboard keycaps are baked into a Spline file. To update the skills displayed on the keyboard:
-
-1. **Import** the `public/assets/skills-keyboard.spline` file into [Spline](https://spline.design/)
-2. **Unhide** the keycap objects you want to edit
-3. **Update** the logo images on each keycap to your new skill icons
-4. **Rename** each keycap object to match the skill's `name` field in `src/data/constants.ts` (e.g. `js`, `react`, `docker`)
-5. **Hide** all keycap objects again
-6. **Export** the scene and overwrite `public/assets/skills-keyboard.spline`
-
-After updating the Spline file, make sure `src/data/constants.ts` has matching entries for every skill on the keyboard:
-
-```ts
-// Each keycap object name in Spline must match a key in SKILLS
-export const SKILLS: Record<SkillNames, Skill> = {
-  js: { name: "js", label: "JavaScript", shortDescription: "...", ... },
-  react: { name: "react", label: "React", shortDescription: "...", ... },
-  // ... add/remove entries to match your keyboard
-};
-```
-
-The `SkillNames` enum, `SKILLS` record, and the Spline keycap names must all stay in sync for the keyboard interactions to work correctly.
-
----
-
-## 🔌 Realtime Features (Optional)
-
-The portfolio supports optional realtime features powered by a **separate backend API**:
-
-- 🖱️ **Live cursors** — See other visitors' cursors in realtime
-- 👥 **Online presence** — Shows who's currently on the site
-- 💬 **Chat** — Live chat between visitors
-
-These features activate automatically when the `NEXT_PUBLIC_WS_URL` environment variable is set. Without it, the portfolio works perfectly fine as a static site — no realtime features, no backend dependency.
-
-> [!NOTE]
-> The backend API is **not open source**. This is intentional! Too many people have cloned the portfolio and claimed they built it from scratch. The realtime server stays private to keep the live experience unique make make it standout.
-
-
----
-
-## 🚀 Deployment
-
-[![Deploy with Vercel](https://vercel.com/button)](https://mahaakshay.vercel.app/)
-
-This site is deployed on **Vercel**. To deploy your own:
-
-1. Push your code to a GitHub repository
-2. Connect the repository to [Vercel](https://vercel.com)
-3. Add your environment variables in the Vercel dashboard
-4. Vercel handles the rest — automatic deployments on every push
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
+- **Website:** [mahaakshay.vercel.app](https://mahaakshay.vercel.app/)
+- **Email:** [maha30r@gmail.com](mailto:maha30r@gmail.com)
+- **LinkedIn:** [Maha Akshay R](https://www.linkedin.com/in/maha-akshay-r-96690926a/)
+- **Instagram:** [@mac.9035](https://www.instagram.com/mac.9035)
+- **GitHub:** [@mac20060630](https://github.com/mac20060630)
