@@ -4,9 +4,9 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 
 > **Free to use!** This portfolio is open source. If you use it, a credit/link back would be really appreciated 🙏
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://mahaakshay.vercel.app/)
 
-![Portfolio Preview](https://github.com/Naresh-Khatri/Portfolio/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
+![Portfolio Preview](public/assets/projects-screenshots/portfolio/landing.png)
 
 ## ✨ Features
 
@@ -162,7 +162,7 @@ These features activate automatically when the `NEXT_PUBLIC_WS_URL` environment 
 
 ## 🚀 Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Naresh-Khatri/3d-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://mahaakshay.vercel.app/)
 
 This site is deployed on **Vercel**. To deploy your own:
 
@@ -173,14 +173,7 @@ This site is deployed on **Vercel**. To deploy your own:
 
 ---
 
-## 🤝 Contributing
-
-If you'd like to contribute or suggest improvements, feel free to open an issue or submit a pull request. All contributions are welcome!
-
----
-
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-If you use this portfolio, a credit or link back to the [original repo](https://github.com/Naresh-Khatri/3d-portfolio) would be much appreciated ❤️
