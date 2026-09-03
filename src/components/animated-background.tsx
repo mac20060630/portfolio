@@ -291,92 +291,9 @@ const AnimatedBackground = () => {
 
   }, [splineApp, isMobile]);
 
-  // Handle keyboard theme (color & text visibility) based on theme and section
+  // Handle keyboard text visibility based on theme and section
   useEffect(() => {
     if (!splineApp) return;
-
-    // Update keyboard body chassis color based on theme
-    const scene = (splineApp as any)?._scene || (splineApp as any)?.scene;
-    if (scene) {
-      const body = scene.getObjectByName("body");
-      if (body) {
-        const isLight = theme === "light";
-        const targetCss = isLight ? "#ffffff" : "#161616";
-        const targetHex = isLight ? 0xffffff : 0x161616;
-        const targetRgb = isLight
-          ? { r: 1, g: 1, b: 1 }
-          : { r: 0.08874, g: 0.08874, b: 0.08874 };
-
-        body.traverse((child: any) => {
-          if (child.material) {
-            const mats = Array.isArray(child.material)
-              ? child.material
-              : [child.material];
-
-            mats.forEach((mat: any) => {
-              if (!mat) return;
-
-              if (mat.color && typeof mat.color.set === "function") {
-                mat.color.set(targetCss);
-              }
-
-              if (mat.uniforms) {
-                if (mat.uniforms.nodeU0?.value) {
-                  if (typeof mat.uniforms.nodeU0.value.set === "function") {
-                    mat.uniforms.nodeU0.value.set(targetCss);
-                  } else {
-                    mat.uniforms.nodeU0.value = targetHex;
-                  }
-                }
-                Object.values(mat.uniforms).forEach((u: any) => {
-                  if (u?.value?.isColor) {
-                    const hex = u.value.getHexString();
-                    if (hex === "161616" || hex === "ffffff") {
-                      u.value.set(targetCss);
-                    }
-                  }
-                });
-              }
-
-              if (mat.layers && Array.isArray(mat.layers)) {
-                mat.layers.forEach((layer: any) => {
-                  if (layer.type === "color") {
-                    if (layer.color?.color) {
-                      layer.color.color.value = targetHex;
-                    }
-                    if (layer.data?.color) {
-                      layer.data.color.r = targetRgb.r;
-                      layer.data.color.g = targetRgb.g;
-                      layer.data.color.b = targetRgb.b;
-                    }
-                  }
-                });
-              }
-
-              if (mat.flavors && Array.isArray(mat.flavors)) {
-                mat.flavors.forEach((flavor: any) => {
-                  if (flavor?.uniforms?.nodeU0?.value) {
-                    if (typeof flavor.uniforms.nodeU0.value.set === "function") {
-                      flavor.uniforms.nodeU0.value.set(targetCss);
-                    } else {
-                      flavor.uniforms.nodeU0.value = targetHex;
-                    }
-                  }
-                });
-              }
-
-              mat.needsUpdate = true;
-              if (mat.uniformsNeedUpdate !== undefined) {
-                mat.uniformsNeedUpdate = true;
-              }
-            });
-          }
-        });
-
-        splineApp.requestRender();
-      }
-    }
-
     const textDesktopDark = splineApp.findObjectByName("text-desktop-dark");
     const textDesktopLight = splineApp.findObjectByName("text-desktop");
     const textMobileDark = splineApp.findObjectByName("text-mobile-dark");
@@ -462,7 +379,6 @@ const AnimatedBackground = () => {
 
       // Handle Rotate/Teardown Tweens
       if (activeSection === "hero") {
-        await sleep(600);
         rotateKeyboard?.restart();
         teardownKeyboard?.pause();
       } else if (activeSection === "contact") {
