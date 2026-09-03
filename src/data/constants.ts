@@ -348,7 +348,7 @@ export const EDUCATION: Education[] = [
   {
     id: 1,
     startDate: "2024",
-    endDate: "Present",
+    endDate: "Current",
     degree: "B.Tech in Computer Science & Engineering",
     institution: "CMR University (CMRU)",
     location: "Bengaluru, Karnataka",
@@ -369,7 +369,7 @@ export const EDUCATION: Education[] = [
   },
   {
     id: 2,
-    startDate: "2021",
+    startDate: "2022",
     endDate: "2024",
     degree: "Diploma in Computer Science & Engineering",
     institution: "Nitte Meenakshi Institute of Technology (NMIT)",

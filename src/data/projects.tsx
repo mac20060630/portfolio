@@ -275,32 +275,6 @@ const projects: Project[] = [
       </div>
     ),
   },
-  {
-    id: "flowersss",
-    category: "Creative WebGL / Canvas",
-    title: "Flowersss — Bioluminescent Floral",
-    src: "/assets/projects/flowers-coral.png",
-    screenshots: ["flowers-coral.png"],
-    skills: {
-      frontend: [
-        commonSkills.javascript,
-        commonSkills.framer,
-      ],
-      backend: [],
-    },
-    live: "https://flowers-coral-ten.vercel.app/",
-    github: "https://github.com/mac20060630/flowers-",
-    content: (
-      <div className="space-y-4">
-        <p className="text-neutral-600 dark:text-neutral-400">
-          An interactive, bioluminescent floral animation that glows dynamically against a dark starry canvas.
-        </p>
-        <p className="text-neutral-600 dark:text-neutral-400">
-          Highlights procedural mathematical animations, fluid canvas rendering, and custom CSS shaders to generate an ambient, organic visual experience.
-        </p>
-      </div>
-    ),
-  },
 ];
 
 export default projects;
