@@ -16,16 +16,22 @@ import SmoothScroll from "../smooth-scroll";
 import projects, { Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "./section-header";
-
 import SectionWrapper from "../ui/section-wrapper";
+
+import { SiGithub } from "react-icons/si";
+import { ExternalLink } from "lucide-react";
 
 const ProjectsSection = () => {
   return (
-    <SectionWrapper id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
-      <SectionHeader id='projects' title="Projects" />
-      <div className="grid grid-cols-1 md:grid-cols-3">
+    <SectionWrapper id="projects" className="max-w-7xl mx-auto min-h-screen py-16">
+      <SectionHeader 
+        id="projects" 
+        title="Featured Projects" 
+        desc="Curated showcase of mobile systems, 3D WebGL, and scalable web applications." 
+      />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 mt-6">
         {projects.map((project, index) => (
-          <Modall key={project.src} project={project} />
+          <Modall key={project.id || project.src} project={project} />
         ))}
       </div>
     </SectionWrapper>
@@ -37,7 +43,7 @@ const CancelButton = () => {
   return (
     <button
       onClick={() => setOpen(false)}
-      className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28 cursor-pointer"
+      className="px-2 py-1 bg-gray-200 text-black dark:bg-neutral-900 dark:border-neutral-700 dark:text-white border border-gray-300 rounded-md text-sm w-28 cursor-pointer hover:opacity-80 transition-opacity"
     >
       Cancel
     </button>
@@ -48,39 +54,57 @@ const Modall = ({ project }: { project: Project }) => {
   return (
     <div className="flex items-center justify-center">
       <Modal>
-        <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
+        <ModalTrigger className="bg-transparent flex justify-center group/modal-btn w-full">
           <div
-            className="relative w-[400px] h-auto rounded-lg overflow-hidden"
+            className="relative w-full max-w-[380px] h-auto rounded-xl overflow-hidden border border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 group"
             style={{ aspectRatio: "3/2" }}
           >
             <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all object-cover object-top"
+              className="absolute w-full h-full top-0 left-0 group-hover:scale-105 transition-transform duration-500 object-cover object-top"
               src={project.src}
               alt={project.title}
-              width={300}
+              width={400}
               height={300}
             />
             <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none">
-              <div className="flex flex-col h-full items-start justify-end p-6">
-                <div className="text-lg text-left">{project.title}</div>
-                <div className="text-xs bg-white text-black rounded-lg w-fit px-2">
-                  {project.category}
+              <div className="flex flex-col h-full items-start justify-end p-5">
+                <div className="text-base md:text-lg font-semibold text-white text-left line-clamp-1">
+                  {project.title}
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-[11px] font-medium bg-white/90 text-black rounded-md px-2 py-0.5">
+                    {project.category}
+                  </span>
+                  {project.github && (
+                    <span className="text-[10px] bg-neutral-800/90 text-neutral-300 border border-neutral-700 rounded-md px-1.5 py-0.5 flex items-center gap-1">
+                      <SiGithub className="text-xs" /> Code
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </ModalTrigger>
-        <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto">
+        <ModalBody className="md:max-w-4xl md:max-h-[85%] overflow-auto">
           <SmoothScroll isInsideModal={true}>
             <ModalContent>
               <ProjectContents project={project} />
             </ModalContent>
           </SmoothScroll>
-          <ModalFooter className="gap-4">
+          <ModalFooter className="gap-3 flex-wrap justify-end">
             <CancelButton />
+            {project.github && (
+              <Link href={project.github} target="_blank">
+                <button className="flex items-center justify-center gap-1.5 bg-neutral-900 text-white dark:bg-neutral-800 dark:text-white text-sm px-3 py-1 rounded-md border border-neutral-700 hover:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors w-28">
+                  <SiGithub size={14} />
+                  <span>GitHub</span>
+                </button>
+              </Link>
+            )}
             <Link href={project.live} target="_blank">
-              <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                Visit
+              <button className="flex items-center justify-center gap-1.5 bg-black text-white dark:bg-white dark:text-black text-sm px-3 py-1 rounded-md border border-black hover:opacity-90 transition-opacity w-28 font-medium">
+                <ExternalLink size={14} />
+                <span>Visit</span>
               </button>
             </Link>
           </ModalFooter>

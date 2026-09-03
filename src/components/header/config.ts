@@ -16,17 +16,16 @@ const links: Link[] = [
     href: '/#projects',
     thumbnail: '/assets/nav-link-previews/projects.png'
   },
-  // {
-  //   title: 'Skills',
-  //   href: '/skills',
-  //   thumbnail: '/assets/nav-link-previews/skills.png'
-  // },
-  // {
-  //   title: 'Testimonials',
-  //   href: '/testimonials',
-  //   thumbnail: '/assets/nav-link-previews/testimonials.png'
-  // },
-
+  {
+    title: 'Experience & Edu',
+    href: '/#experience',
+    thumbnail: '/assets/nav-link-previews/about.png'
+  },
+  {
+    title: 'Honors & Certs',
+    href: '/#achievements',
+    thumbnail: '/assets/nav-link-previews/skills.png'
+  },
   {
     title: 'Contact',
     href: '/#contact',

@@ -13,12 +13,14 @@ Personal 3D developer portfolio of **Maha Akshay** — UI/UX Designer & Creative
 
 ## ✨ Key Features
 
-- **Interactive 3D Keyboard** — Custom 3D Spline keyboard where each keycap represents a skill, revealing titles and details on hover/press.
+- **Interactive 3D Mechanical Keyboard** — Custom 3D Spline keyboard where keycaps represent skills with dynamic GSAP camera choreography and mechanical audio feedback.
+- **Categorized Skills Matrix** — Comprehensive touch & trackpad-friendly tech stack matrix with real-time sound feedback.
+- **Curated Projects Deck** — 6 production projects featuring SpeedRoute (Android + Gemini AI), The Eye (3D Geopolitical OSINT), client portfolios, and SaaS automation platforms with direct GitHub and Live demo links.
+- **Academic & Industry Timeline** — Dual-track interactive timeline highlighting B.Tech at CMR University, Diploma at NMIT, and professional engineering internships.
+- **Honors & Credentials** — Verified certifications and leadership milestones including OSA 2025 Core Team, Cisco Networking, and Infosys Springboard AI/ML.
 - **Dynamic Animations** — Powered by GSAP and Framer Motion for smooth scroll, hover, and reveal effects.
-- **Space Theme** — Cosmic aesthetic with floating canvas particles.
-- **Theme Support** — Full dark and light mode support.
+- **Space Theme** — Cosmic aesthetic with floating canvas particles and dark/light mode parity.
 - **Contact Form** — Direct email delivery integrated via Resend.
-- **Fully Responsive** — Seamlessly optimized across screen sizes.
 
 ---
 

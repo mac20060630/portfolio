@@ -332,6 +332,133 @@ export const EXPERIENCE: Experience[] = [
   },
 ];
 
+export type Education = {
+  id: number;
+  startDate: string;
+  endDate: string;
+  degree: string;
+  institution: string;
+  location: string;
+  description: string[];
+  skills: SkillNames[];
+  status?: string;
+};
+
+export const EDUCATION: Education[] = [
+  {
+    id: 1,
+    startDate: "2024",
+    endDate: "Present",
+    degree: "B.Tech in Computer Science & Engineering",
+    institution: "CMR University (CMRU)",
+    location: "Bengaluru, Karnataka",
+    status: "Pursuing",
+    description: [
+      "Specializing in Cloud Computing, AI Architectures, and Modern Distributed Systems.",
+      "Actively developing intelligent web systems, 3D WebGL interfaces, and AI-driven platforms.",
+      "Participating in hackathons, open-source initiatives, and inter-collegiate technical symposiums.",
+    ],
+    skills: [
+      SkillNames.REACT,
+      SkillNames.NEXTJS,
+      SkillNames.TS,
+      SkillNames.PYTHON,
+      SkillNames.POSTGRES,
+      SkillNames.DOCKER,
+    ],
+  },
+  {
+    id: 2,
+    startDate: "2021",
+    endDate: "2024",
+    degree: "Diploma in Computer Science & Engineering",
+    institution: "Nitte Meenakshi Institute of Technology (NMIT)",
+    location: "Bengaluru, Karnataka",
+    status: "Completed",
+    description: [
+      "Graduated with a comprehensive foundation in Software Engineering, Algorithms, and Operating Systems.",
+      "Acquired hands-on proficiency in Full-Stack Web Development, Relational Databases, and Network Protocols.",
+      "Spearheaded technical lab projects and collaborated on capstone software implementations.",
+    ],
+    skills: [
+      SkillNames.JS,
+      SkillNames.HTML,
+      SkillNames.CSS,
+      SkillNames.LINUX,
+      SkillNames.GIT,
+      SkillNames.GITHUB,
+    ],
+  },
+];
+
+export type Achievement = {
+  id: number;
+  title: string;
+  issuer: string;
+  category: "Leadership" | "Certification" | "AI & ML" | "Hackathon";
+  date: string;
+  badgeText?: string;
+  description: string;
+  link?: string;
+};
+
+export const ACHIEVEMENTS: Achievement[] = [
+  {
+    id: 1,
+    title: "Core & Editorial Team Member",
+    issuer: "OSA 2025 (Open Source Annual Conference)",
+    category: "Leadership",
+    date: "2025",
+    badgeText: "Core Committee",
+    description: "Selected for the core editorial and organizing committee for OSA 2025. Directed technical publication documentation, curated speaker sessions, and coordinated technical fest operations.",
+  },
+  {
+    id: 2,
+    title: "Cisco Certified: Networking Fundamentals & Protocols",
+    issuer: "Cisco Networking Academy",
+    category: "Certification",
+    date: "2024",
+    badgeText: "Cisco Academy",
+    description: "Demonstrated verified mastery of TCP/IP suite, OSI layer models, subnetting, network routing, packet forwarding, and secure network infrastructure architecture.",
+  },
+  {
+    id: 3,
+    title: "Generative AI Specialization",
+    issuer: "Infosys Springboard",
+    category: "AI & ML",
+    date: "2025",
+    badgeText: "Infosys Certified",
+    description: "Completed comprehensive training on Transformer models, LLM fine-tuning, prompt engineering, multimodal embeddings, and building generative agentic workflows.",
+  },
+  {
+    id: 4,
+    title: "Artificial Intelligence & Machine Learning",
+    issuer: "Infosys Springboard",
+    category: "AI & ML",
+    date: "2024",
+    badgeText: "Infosys Certified",
+    description: "Rigorous certification covering supervised and unsupervised learning algorithms, neural network design, predictive regression models, and deep learning implementations using Python.",
+  },
+  {
+    id: 5,
+    title: "Full-Stack & Interactive Web Engineering",
+    issuer: "Independent / Creative Tech Excellence",
+    category: "Certification",
+    date: "2025",
+    badgeText: "Engineering Award",
+    description: "Mastery in developing high-performance modern web architectures combining Next.js 14, 3D WebGL (Spline/Three.js), GSAP physics-driven animation, and production cloud deployments.",
+  },
+  {
+    id: 6,
+    title: "Hackathon Innovation & Buildathon Finalist",
+    issuer: "Inter-Collegiate Technical Symposium",
+    category: "Hackathon",
+    date: "2024 - 2025",
+    badgeText: "Technical Finalist",
+    description: "Competed in high-intensity sprint hackathons, designing and presenting functional AI-assisted prototypes and real-time situational awareness dashboards under tight deadlines.",
+  },
+];
+
 export const themeDisclaimers = {
   light: [
     "Warning: Light mode emits a gazillion lumens of pure radiance!",
@@ -348,4 +475,5 @@ export const themeDisclaimers = {
     "Dark mode on! Finally, someone who understands true sophistication.",
   ],
 };
+
 

@@ -9,6 +9,11 @@ import {
   SiNodedotjs,
   SiFirebase,
   SiPostgresql,
+  SiKotlin,
+  SiAndroid,
+  SiOpenstreetmap,
+  SiGooglegemini,
+  SiThreedotjs,
 } from "react-icons/si";
 
 export type Skill = {
@@ -85,9 +90,133 @@ const commonSkills = {
     fg: "text-white",
     icon: <SiPostgresql />,
   },
+  kotlin: {
+    title: "Kotlin",
+    bg: "bg-[#7F52FF]",
+    fg: "text-white",
+    icon: <SiKotlin />,
+  },
+  android: {
+    title: "Android Studio",
+    bg: "bg-[#3DDC84]",
+    fg: "text-black",
+    icon: <SiAndroid />,
+  },
+  gemini: {
+    title: "Gemini AI",
+    bg: "bg-[#1A73E8]",
+    fg: "text-white",
+    icon: <SiGooglegemini />,
+  },
+  osm: {
+    title: "OpenStreetMap",
+    bg: "bg-[#7EBC6F]",
+    fg: "text-white",
+    icon: <SiOpenstreetmap />,
+  },
+  threejs: {
+    title: "Three.js / WebGL",
+    bg: "bg-black",
+    fg: "text-white",
+    icon: <SiThreedotjs />,
+  },
 };
 
 const projects: Project[] = [
+  {
+    id: "speed-route",
+    category: "AI & Mobile Engineering",
+    title: "SpeedRoute — AI Travel & Navigation",
+    src: "/assets/projects/speed-route.png",
+    screenshots: ["speed-route.png"],
+    skills: {
+      frontend: [
+        commonSkills.kotlin,
+        commonSkills.android,
+        commonSkills.osm,
+      ],
+      backend: [
+        commonSkills.gemini,
+      ],
+    },
+    live: "https://github.com/mac20060630/SpeedRoute/releases",
+    github: "https://github.com/mac20060630/SpeedRoute",
+    content: (
+      <div className="space-y-4">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          <strong>SpeedRoute (TripRank)</strong> is an intelligent, AI-powered Android travel assistant and turn-by-turn navigation engine built natively with Kotlin and Android Studio.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          It integrates <strong>Google Gemini AI</strong> for automated itinerary generation, real-time OpenStreetMap routing, speed camera proximity warnings, and an interactive global leaderboard where users compare travel efficiency.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Features offline map caching, telemetry sensors, and background GPS tracking optimized for low battery consumption.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "the-eye",
+    category: "Intelligence & 3D WebGL",
+    title: "The Eye — 3D Geopolitical OSINT",
+    src: "/assets/projects/the-eye.jpg",
+    screenshots: ["the-eye.jpg"],
+    skills: {
+      frontend: [
+        commonSkills.typescript,
+        commonSkills.threejs,
+        commonSkills.react,
+        commonSkills.tailwind,
+      ],
+      backend: [
+        commonSkills.node,
+      ],
+    },
+    live: "https://github.com/mac20060630/ai-arena-proj-the-eye-",
+    github: "https://github.com/mac20060630/ai-arena-proj-the-eye-",
+    content: (
+      <div className="space-y-4">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          <strong>The Eye (World Monitor)</strong> is an open-source real-time geopolitical intelligence dashboard designed for situational awareness, threat analysis, and live conflict tracking.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Renders an interactive 3D WebGL globe with geospatial telemetry layers displaying active hotspots, cyber attack vectors, satellite feeds, and international flight corridors.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Aggregates real-time feeds from defense observatories, think tanks, and OSINT sources into an intuitive military-grade command center interface.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "white-pearl",
+    category: "Venue Showcase",
+    title: "White Pearl Convention Centre",
+    src: "/assets/projects/white-pearl.png",
+    screenshots: ["white-pearl.png"],
+    skills: {
+      frontend: [
+        commonSkills.nextjs,
+        commonSkills.react,
+        commonSkills.tailwind,
+        commonSkills.framer,
+        commonSkills.typescript,
+      ],
+      backend: [],
+    },
+    live: "https://whitepearl-eight.vercel.app/",
+    github: "https://github.com/mac20060630/whitepearl",
+    content: (
+      <div className="space-y-4">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          The official website for White Pearl Convention Centre, a premiere wedding and banquet destination in Bengaluru.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Features interactive venue explorers, 3D spatial tours, capacity calculators, and a seamless booking inquiry funnel designed for high-end celebrations.
+        </p>
+      </div>
+    ),
+  },
   {
     id: "abhii-studio",
     category: "Artist Portfolio",
@@ -110,59 +239,7 @@ const projects: Project[] = [
           A digital archive and portfolio for Abhijit Debnath, an interdisciplinary artist whose work explores themes of memory, displacement, and temporary structures using materials like bamboo and textile.
         </p>
         <p className="text-neutral-600 dark:text-neutral-400">
-          The site features high-fidelity visual documentation of artistic installations, with smooth GSAP and Framer Motion transitions that mirror the organic nature of the work.
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: "white-pearl",
-    category: "Venue Showcase",
-    title: "White Pearl Convention Centre",
-    src: "/assets/projects/white-pearl.png",
-    screenshots: ["white-pearl.png"],
-    skills: {
-      frontend: [
-        commonSkills.nextjs,
-        commonSkills.react,
-        commonSkills.tailwind,
-        commonSkills.framer,
-        commonSkills.typescript,
-      ],
-      backend: [],
-    },
-    live: "https://whitepearl-eight.vercel.app/",
-    content: (
-      <div className="space-y-4">
-        <p className="text-neutral-600 dark:text-neutral-400">
-          The official website for White Pearl Convention Centre, a premiere wedding venue in Bengaluru. The platform provides an immersive look into their luxurious spaces and world-class hospitality services.
-        </p>
-        <p className="text-neutral-600 dark:text-neutral-400">
-          Includes interactive venue explorers, capacity details, and a seamless booking inquiry flow designed to convert high-end celebration leads.
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: "flowersss",
-    category: "Interactive Animation",
-    title: "Flowersss",
-    src: "/assets/projects/flowers-coral.png",
-    screenshots: ["flowers-coral.png"],
-    skills: {
-      frontend: [
-        commonSkills.javascript,
-      ],
-      backend: [],
-    },
-    live: "https://flowers-coral-ten.vercel.app/",
-    content: (
-      <div className="space-y-4">
-        <p className="text-neutral-600 dark:text-neutral-400">
-          An interactive, bioluminescent floral animation that glows against a dark, starry background. The site serves as a creative showcase, featuring fluid, glowing animations of blooming flowers and grass.
-        </p>
-        <p className="text-neutral-600 dark:text-neutral-400">
-          Built as a visual surprise, this project highlights custom CSS and JavaScript animations to create a serene, ambient experience.
+          Features high-fidelity visual documentation of artistic installations with smooth GSAP and Framer Motion transitions that mirror the organic nature of the work.
         </p>
       </div>
     ),
@@ -170,7 +247,7 @@ const projects: Project[] = [
   {
     id: "lead-gen-dashboard",
     category: "SaaS Platform",
-    title: "Lead Generation and Automated Email Dashboard",
+    title: "Lead Generation & Outreach SaaS",
     src: "/assets/projects/lead-gen-dashboard.png",
     screenshots: ["lead-gen-dashboard.png"],
     skills: {
@@ -190,10 +267,36 @@ const projects: Project[] = [
     content: (
       <div className="space-y-4">
         <p className="text-neutral-600 dark:text-neutral-400">
-          A comprehensive automation platform designed to streamline lead acquisition and email marketing workflows. This dashboard provides a centralized hub for managing campaigns, tracking lead conversion, and automating personalized email sequences.
+          A comprehensive automation platform designed to streamline lead acquisition and email marketing workflows.
         </p>
         <p className="text-neutral-600 dark:text-neutral-400">
-          Featuring a high-performance glassmorphic UI, real-time data visualization, and seamless CRM integration, it empowers businesses to scale their outreach with precision and ease.
+          Featuring a high-performance glassmorphic UI, real-time metrics visualization, and CRM integration, empowering businesses to automate multi-stage email sequences.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "flowersss",
+    category: "Creative WebGL / Canvas",
+    title: "Flowersss — Bioluminescent Floral",
+    src: "/assets/projects/flowers-coral.png",
+    screenshots: ["flowers-coral.png"],
+    skills: {
+      frontend: [
+        commonSkills.javascript,
+        commonSkills.framer,
+      ],
+      backend: [],
+    },
+    live: "https://flowers-coral-ten.vercel.app/",
+    github: "https://github.com/mac20060630/flowers-",
+    content: (
+      <div className="space-y-4">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          An interactive, bioluminescent floral animation that glows dynamically against a dark starry canvas.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Highlights procedural mathematical animations, fluid canvas rendering, and custom CSS shaders to generate an ambient, organic visual experience.
         </p>
       </div>
     ),
