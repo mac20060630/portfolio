@@ -12,6 +12,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { Section, getKeyboardState } from "./animated-background-config";
 import { useSounds } from "./realtime/hooks/use-sounds";
+import { Raycaster, Vector2 } from "three";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -333,6 +334,153 @@ const AnimatedBackground = () => {
     splineApp.setVariable("desc", selectedSkill.shortDescription);
   }, [selectedSkill]);
 
+  // Handle cursor hover over keycaps using Three.js Raycaster
+  useEffect(() => {
+    if (!splineApp) return;
+
+    const scene = (splineApp as any)?._scene || (splineApp as any)?.scene;
+    const canvas = splineApp.canvas;
+    if (!scene || !canvas) return;
+
+    const keycapMap = new Map<any, Skill>();
+    Object.values(SKILLS).forEach((skill) => {
+      const obj = scene.getObjectByName(skill.name);
+      if (obj) {
+        keycapMap.set(obj, skill);
+      }
+    });
+
+    const keycapObjects = Array.from(keycapMap.keys());
+    if (keycapObjects.length === 0) return;
+
+    const raycaster = new Raycaster();
+    const mouse = new Vector2();
+    let currentHoveredSkill: Skill | null = null;
+    let prevSplineObj: any = null;
+
+    const onPointerMove = (e: PointerEvent) => {
+      // Only process when in skills or hero section
+      if (activeSection !== "skills" && activeSection !== "hero") return;
+
+      const camera = (splineApp as any)?._camera || scene.activeCamera;
+      if (!camera) return;
+
+      const rect = canvas.getBoundingClientRect();
+      if (
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+      ) {
+        return;
+      }
+
+      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(keycapObjects, true);
+
+      if (intersects.length > 0) {
+        let hitSkill: Skill | null = null;
+        let curr: any = intersects[0].object;
+        while (curr) {
+          if (keycapMap.has(curr)) {
+            hitSkill = keycapMap.get(curr)!;
+            break;
+          }
+          curr = curr.parent;
+        }
+
+        if (hitSkill) {
+          if (currentHoveredSkill?.name !== hitSkill.name) {
+            if (currentHoveredSkill) {
+              playReleaseSound();
+              if (prevSplineObj?.emitEventReverse) {
+                try {
+                  prevSplineObj.emitEventReverse("mouseHover");
+                } catch (_) {}
+              }
+            }
+
+            playPressSound();
+            currentHoveredSkill = hitSkill;
+            selectedSkillRef.current = hitSkill;
+            setSelectedSkill(hitSkill);
+
+            splineApp.setVariable("heading", hitSkill.label);
+            splineApp.setVariable("desc", hitSkill.shortDescription);
+
+            const splineObj = splineApp.findObjectByName(hitSkill.name);
+            if (splineObj?.emitEvent) {
+              try {
+                splineObj.emitEvent("mouseHover");
+              } catch (_) {}
+            }
+            prevSplineObj = splineObj;
+          }
+        }
+      } else {
+        if (currentHoveredSkill) {
+          playReleaseSound();
+          if (prevSplineObj?.emitEventReverse) {
+            try {
+              prevSplineObj.emitEventReverse("mouseHover");
+            } catch (_) {}
+          }
+          currentHoveredSkill = null;
+          prevSplineObj = null;
+          selectedSkillRef.current = null;
+          setSelectedSkill(null);
+
+          splineApp.setVariable("heading", "");
+          splineApp.setVariable("desc", "");
+        }
+      }
+    };
+
+    const onPointerDown = () => {
+      if (currentHoveredSkill) {
+        playPressSound();
+      }
+    };
+
+    const onPointerUp = () => {
+      if (currentHoveredSkill) {
+        playReleaseSound();
+      }
+    };
+
+    const onMouseLeave = () => {
+      if (currentHoveredSkill) {
+        playReleaseSound();
+        if (prevSplineObj?.emitEventReverse) {
+          try {
+            prevSplineObj.emitEventReverse("mouseHover");
+          } catch (_) {}
+        }
+        currentHoveredSkill = null;
+        prevSplineObj = null;
+        selectedSkillRef.current = null;
+        setSelectedSkill(null);
+        splineApp.setVariable("heading", "");
+        splineApp.setVariable("desc", "");
+      }
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("pointerdown", onPointerDown, { passive: true });
+    window.addEventListener("pointerup", onPointerUp, { passive: true });
+    document.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerup", onPointerUp);
+      document.removeEventListener("mouseleave", onMouseLeave);
+    };
+  }, [splineApp, activeSection, playPressSound, playReleaseSound]);
+
   // Handle rotation and teardown animations based on active section
   useEffect(() => {
     if (!splineApp) return;
@@ -432,6 +580,7 @@ const AnimatedBackground = () => {
         className="w-full h-full fixed"
         ref={splineContainer}
         onLoad={(app: Application) => {
+          (window as any).splineApp = app;
           setSplineApp(app);
           bypassLoading();
         }}

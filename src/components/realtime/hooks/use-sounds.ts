@@ -30,7 +30,22 @@ export const useSounds = () => {
 
     loadSound();
 
+    const unlockAudio = () => {
+      if (audioContextRef.current && audioContextRef.current.state === "suspended") {
+        audioContextRef.current.resume();
+      }
+    };
+
+    window.addEventListener("pointerdown", unlockAudio, { passive: true });
+    window.addEventListener("keydown", unlockAudio, { passive: true });
+    window.addEventListener("scroll", unlockAudio, { passive: true });
+    window.addEventListener("pointermove", unlockAudio, { passive: true, once: true });
+
     return () => {
+      window.removeEventListener("pointerdown", unlockAudio);
+      window.removeEventListener("keydown", unlockAudio);
+      window.removeEventListener("scroll", unlockAudio);
+      window.removeEventListener("pointermove", unlockAudio);
       audioContextRef.current?.close();
     };
   }, []);
