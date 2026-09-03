@@ -10,6 +10,7 @@ import AppOverlays from "@/components/app-overlays";
 import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mahaakshay.vercel.app"),
   title: config.title,
   description: config.description.long,
   keywords: config.keywords,
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: config.ogImg,
-        width: 800,
-        height: 600,
+        width: 1024,
+        height: 512,
         alt: "Portfolio preview",
       },
     ],
