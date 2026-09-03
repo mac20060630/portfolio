@@ -14,6 +14,9 @@ import {
   SiOpenstreetmap,
   SiGooglegemini,
   SiThreedotjs,
+  SiSwift,
+  SiApple,
+  SiSteam,
 } from "react-icons/si";
 
 export type Skill = {
@@ -120,9 +123,58 @@ const commonSkills = {
     fg: "text-white",
     icon: <SiThreedotjs />,
   },
+  swift: {
+    title: "Swift 5.9 / SwiftUI",
+    bg: "bg-[#F05138]",
+    fg: "text-white",
+    icon: <SiSwift />,
+  },
+  macos: {
+    title: "macOS / Metal 3",
+    bg: "bg-black",
+    fg: "text-white",
+    icon: <SiApple />,
+  },
+  steam: {
+    title: "Steam & Epic Engine",
+    bg: "bg-[#171A21]",
+    fg: "text-white",
+    icon: <SiSteam />,
+  },
 };
 
 const projects: Project[] = [
+  {
+    id: "valkyrie",
+    category: "Systems & macOS Native",
+    title: "Valkyrie — Native macOS Gaming Launcher",
+    src: "/assets/projects/valkyrie.jpg",
+    screenshots: ["valkyrie.jpg"],
+    skills: {
+      frontend: [
+        commonSkills.swift,
+        commonSkills.macos,
+      ],
+      backend: [
+        commonSkills.steam,
+      ],
+    },
+    live: "https://github.com/mac20060630/valkyriesafepoint",
+    github: "https://github.com/mac20060630/valkyriesafepoint",
+    content: (
+      <div className="space-y-4">
+        <p className="text-neutral-600 dark:text-neutral-400">
+          <strong>Valkyrie</strong> is a lightweight, zero-dependency native macOS gaming launcher and Windows compatibility orchestrator engineered with <strong>Swift 5.9 and SwiftUI</strong> for Apple Silicon (M1–M4) and Intel Macs.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Features headless library management for <strong>Steam (SteamCMD)</strong> and <strong>Epic Games Store</strong>, dynamic graphics translation toggling between <strong>DXVK (Vulkan via MoltenVK)</strong> and <strong>Apple Game Porting Toolkit (D3DMetal / Metal 3)</strong>.
+        </p>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Includes a controller-driven <strong>Big Picture Console Mode</strong> supporting PlayStation DualSense and Xbox gamepad navigation, a dynamic Metal VRAM governor, and memory crash prevention.
+        </p>
+      </div>
+    ),
+  },
   {
     id: "speed-route",
     category: "AI & Mobile Engineering",
